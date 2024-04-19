@@ -27,14 +27,14 @@ const Cart = () => {
 
   return (
     <>
-      <HStack className="mt-20 mb-3 ml-5">
+      <HStack className="mt-24 mb-3 ml-5">
         <Link to="/" size="xl">
           {/* The default icon size is 1em (16px) */}
           <ArrowLeftIcon boxSize={4} color="green.500" className="mr-1" />
           Tillbaka
         </Link>
       </HStack>
-      <div className="flex flex-col justify-center items-center mt-24 mb-5 mx-3 pt-2 pb-10 bg-gray-50">
+      <div className="flex flex-col justify-center items-center mt-5 mb-24 mx-3 pt-2 pb-10 bg-gray-50">
         <div className="text-lg font-bold text-[#00df9a]">
           Dina kundvagnsartiklar
         </div>
@@ -105,22 +105,25 @@ const Cart = () => {
                 Rensa vagnen{" "}
               </button>
             </div>
-            <button
-              className="w-48 h-12 bg-blue-600 text-white uppercase border-none rounded-lg m-2.5 cursor-pointer"
-              onClick={() => navigate("/")}
-            >
-              {" "}
-              Fortsätt handla{" "}
-            </button>
-            <button
-              className="w-48 h-12 bg-green-600 text-white uppercase border-none rounded-lg m-2.5 cursor-pointer "
-              onClick={() => {
-                handleOrder();
-              }}
-            >
-              {" "}
-              Checkout{" "}
-            </button>
+
+            <div className="flex justify-center items-center mt-8">
+              <button
+                className="w-40 h-12 bg-blue-600 text-white uppercase border-none rounded-lg mx-2 cursor-pointer"
+                onClick={() => navigate("/")}
+              >
+                {" "}
+                Fortsätt handla{" "}
+              </button>
+              <button
+                className="w-40 h-12 bg-green-600 text-white uppercase border-none rounded-lg mx-2 cursor-pointer "
+                onClick={() => {
+                  handleOrder();
+                }}
+              >
+                {" "}
+                Checkout{" "}
+              </button>
+            </div>
           </div>
         ) : (
           <h1> Din vagn är tom.</h1>

@@ -82,7 +82,7 @@ const Checkout = () => {
 
       setTimeout(() => {
         navigate("/");
-      }, 1000);
+      }, 3000);
     } catch (error) {
       toast.error(
         "Misslyckats med betalningen. Kontrollera om din information är korrekt."
