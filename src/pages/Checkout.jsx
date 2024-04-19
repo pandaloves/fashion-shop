@@ -93,7 +93,7 @@ const Checkout = () => {
 
   return (
     <>
-      <HStack className="mt-20 mb-3 ml-5">
+      <HStack className="mt-24 mb-3 ml-5">
         <Link to="/" size="xl">
           {/* The default icon size is 1em (16px) */}
           <ArrowLeftIcon boxSize={4} color="green.500" className="mr-1" />

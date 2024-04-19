@@ -21,7 +21,7 @@ const Login = () => {
               Logga in
             </h2>
           </div>
-          <form className="mt-8 space-y-6" onSubmit={handleLogin}>
+          <form className="mt-10 space-y-6" onSubmit={handleLogin}>
             <div className="relative mt-2 w-full min-w-[200px] h-10">
               <input
                 id="email"
