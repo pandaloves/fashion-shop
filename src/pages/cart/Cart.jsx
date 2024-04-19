@@ -27,7 +27,7 @@ const Cart = () => {
 
   return (
     <>
-      <HStack className="mt-20 mb-3 ml-3">
+      <HStack className="mt-20 mb-3 ml-5">
         <Link to="/" size="xl">
           {/* The default icon size is 1em (16px) */}
           <ArrowLeftIcon boxSize={4} color="green.500" className="mr-1" />
@@ -35,7 +35,9 @@ const Cart = () => {
         </Link>
       </HStack>
       <div className="flex flex-col justify-center items-center mt-24 mb-5 mx-3 pt-2 pb-10 bg-gray-50">
-        <div className="text-lg font-bold text-[#00df9a]">Your Cart Items</div>
+        <div className="text-lg font-bold text-[#00df9a]">
+          Dina kundvagnsartiklar
+        </div>
         <div>
           {productsInCart.map((product) => (
             <div
@@ -96,7 +98,7 @@ const Cart = () => {
                 Delsumma: {totalAmount} SEK{" "}
               </p>
               <button
-                className="w-48 h-12 bg-red-600 hover:bg-red-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
+                className="w-36 h-12 bg-red-600 hover:bg-red-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
                 onClick={() => clearCart()}
               >
                 {" "}

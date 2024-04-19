@@ -54,7 +54,7 @@ const Result = ({ products, results, details, handleProductDetails }) => {
 
   return (
     <>
-      <HStack className="mt-20 mb-3 ml-3">
+      <HStack className="mt-20 mb-3 ml-5">
         <Link to="/" size="xl">
           {/* The default icon size is 1em (16px) */}
           <ArrowLeftIcon boxSize={4} color="green.500" className="mr-1" />
@@ -77,7 +77,7 @@ const Result = ({ products, results, details, handleProductDetails }) => {
         columns={{ sm: 2, md: 3, lg: 4, xl: 5 }}
         padding="6px"
         mt={3}
-        mb={10}
+        mb={20}
         mx={6}
         spacing={5}
       >
