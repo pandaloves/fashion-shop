@@ -70,7 +70,7 @@ export const UserContextProvider = ({ children }) => {
         console.error("User claims are missing or incomplete.");
       }
       setIsAuthenticated(true);
-      // Redirect after successful login
+
       toast.success("Loggat in framgångsrikt！");
       setTimeout(() => {
         navigate("/");

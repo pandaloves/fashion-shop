@@ -73,7 +73,7 @@ export const ShopContextProvider = (props) => {
       setCartItems((prev) => ({ ...prev, [productId]: prev[productId] + 1 }));
       setCartCount((prevCount) => prevCount + 1);
     } catch (error) {
-      console.error("Fel när varan lades till i kundvagnen", error);
+      console.error("Fel när varan lades till i kundvagnen:", error);
     }
   };
 
@@ -100,7 +100,7 @@ export const ShopContextProvider = (props) => {
 
       setCartItems((prev) => ({ ...prev, [productId]: prev[productId] - 1 }));
     } catch (error) {
-      console.error("Fel när varan raderas i kundvagnen", error);
+      console.error("Fel när varan raderas i kundvagnen:", error);
     }
   };
 

@@ -26,7 +26,7 @@ function App() {
   const alertOneRef = useRef();
   const alertTwoRef = useRef();
 
-  // Handle fetch products
+  // Handle fetch all products
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await fetch("https://localhost:7140/api/Products");
@@ -43,7 +43,7 @@ function App() {
     fetchProducts();
   }, []);
 
-  // Fetch details of a dish by its ID
+  // Fetch details of a product by its ID
   const handleProductDetails = async (id) => {
     try {
       const response = await fetch(`https://localhost:7140/api/Products/${id}`);
@@ -59,7 +59,7 @@ function App() {
     }
   };
 
-  // Handle form submission
+  // Handle search products
   const handleSubmit = async (e) => {
     e.preventDefault();
 

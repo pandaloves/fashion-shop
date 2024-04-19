@@ -3,7 +3,6 @@ import {
   useDisclosure,
   Box,
   Heading,
-  Button,
   HStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
