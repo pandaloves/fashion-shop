@@ -110,7 +110,7 @@ const Details = ({ products, details }) => {
                         className="w-48 h-12 m-2 bg-blue-600 text-white uppercase border-none rounded-lg cursor-pointer"
                         onClick={() => addToCart(element.productId)}
                       >
-                        Lägg till i kundvagn
+                        Add
                         {cartItemAmount > 0 && ` (${cartItemAmount})`}
                       </button>
                     </div>

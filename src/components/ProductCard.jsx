@@ -76,14 +76,14 @@ const ProductCard = ({ products, handleClick }) => {
                   handleClick(element);
                 }}
               >
-                Se
+                View
               </button>
 
               <button
                 className="mt-4 bg-blue-600 hover:bg-blue-700 px-1 py-2 text-white uppercase rounded text-xs tracking-wider w-28 cursor-pointer"
                 onClick={() => addToCart(element.productId)}
               >
-                Lägg till i kundvagn
+                Add
                 {cartItems[element.productId] > 0 && (
                   <> ({cartItems[element.productId]})</>
                 )}
