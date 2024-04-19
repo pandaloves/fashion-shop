@@ -24,7 +24,7 @@ const ProductCard = ({ products, handleClick }) => {
         products.map((element) => (
           <div
             key={element.productId}
-            className="relative flex flex-col items-center rounded-md mb-6 mr-6 px-4 py-6 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out cursor-pointer"
+            className="relative flex flex-col items-center rounded-md w-52 h-96 m-4 px-4 py-12 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out cursor-pointer"
           >
             <div className="flex flex-1 flex-col justify-center mb-4 relative">
               <div
@@ -70,24 +70,26 @@ const ProductCard = ({ products, handleClick }) => {
 
               <Price price={element.productPrice} />
 
-              <button
-                className="mt-4 ml-1 mr-2 bg-[#00df9a]  hover:bg-[#00df9a] px-1 py-2 text-white uppercase rounded text-xs tracking-wider w-16 cursor-pointer"
-                onClick={() => {
-                  handleClick(element);
-                }}
-              >
-                View
-              </button>
+              <div className="flex flex-row justify-center">
+                <button
+                  className="mx-2 my-4 bg-[#00df9a] hover:bg-[#00df9a] px-1 py-2 text-white uppercase rounded text-xs tracking-wider w-16 cursor-pointer"
+                  onClick={() => {
+                    handleClick(element);
+                  }}
+                >
+                  View
+                </button>
 
-              <button
-                className="mt-4 bg-blue-600 hover:bg-blue-700 px-1 py-2 text-white uppercase rounded text-xs tracking-wider w-28 cursor-pointer"
-                onClick={() => addToCart(element.productId)}
-              >
-                Add
-                {cartItems[element.productId] > 0 && (
-                  <> ({cartItems[element.productId]})</>
-                )}
-              </button>
+                <button
+                  className="mx-2 my-4 bg-blue-600 w-16 hover:bg-blue-700 px-1 py-2 text-white uppercase rounded text-xs tracking-wider cursor-pointer"
+                  onClick={() => addToCart(element.productId)}
+                >
+                  Add
+                  {cartItems[element.productId] > 0 && (
+                    <> ({cartItems[element.productId]})</>
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         ))}
