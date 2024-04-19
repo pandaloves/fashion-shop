@@ -45,7 +45,7 @@ const Favorite = ({ products, details, handleProductDetails }) => {
       <div className="mt-5 mb-5 mx-7 pt-3 pb-10 px-2 bg-gray-50 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out cursor-pointer">
         <h1 className="mb-5 ml-6 text-lg font-bold text-[#00df9a]">Favorit</h1>
 
-        {/* Mapping over favorite dishes */}
+        {/* Mapping over favorite products */}
         {favorites.map((favorite) => {
           const selectedProduct = products.find(
             (product) => product.productName === favorite

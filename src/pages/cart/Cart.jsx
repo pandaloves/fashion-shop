@@ -93,14 +93,14 @@ const Cart = () => {
             <div className="flex flex-col justify-center items-center gap-2 my-5">
               <p className="font-bold text-center my-3">
                 {" "}
-                Subtotal: {totalAmount} SEK{" "}
+                Delsumma: {totalAmount} SEK{" "}
               </p>
               <button
                 className="w-48 h-12 bg-red-600 hover:bg-red-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
                 onClick={() => clearCart()}
               >
                 {" "}
-                Clear Cart{" "}
+                Rensa vagnen{" "}
               </button>
             </div>
             <button
@@ -108,7 +108,7 @@ const Cart = () => {
               onClick={() => navigate("/")}
             >
               {" "}
-              Continue Shopping{" "}
+              Fortsätt handla{" "}
             </button>
             <button
               className="w-48 h-12 bg-green-600 text-white uppercase border-none rounded-lg m-2.5 cursor-pointer "
@@ -121,7 +121,7 @@ const Cart = () => {
             </button>
           </div>
         ) : (
-          <h1> Your Shopping Cart is Empty</h1>
+          <h1> Din vagn är tom.</h1>
         )}
       </div>
       <ToastContainer />

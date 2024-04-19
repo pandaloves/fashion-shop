@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-// Define FavoritesContext outside of the useFavorites function
 export const FavoritesContext = createContext();
 
 export const FavoritesProvider = ({ children }) => {
@@ -12,13 +11,11 @@ export const FavoritesProvider = ({ children }) => {
       (favProduct) => favProduct === product.productName
     );
     if (index !== -1) {
-      // If the product is already a favorite, remove it from favorites
       const newFavorites = [...favorites];
       newFavorites.splice(index, 1);
       setFavorites(newFavorites);
       localStorage.setItem("favorites", JSON.stringify(newFavorites));
     } else {
-      // If the product is not a favorite, add it to favorites
       setFavorites([...favorites, product.productName]);
       localStorage.setItem(
         "favorites",
