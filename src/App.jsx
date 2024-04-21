@@ -4,7 +4,7 @@ import Layout from "./layout/Layout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
-import Cart from "./pages/cart/Cart";
+import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 import Favorite from "./pages/Favorite";
 import Checkout from "./pages/Checkout";
@@ -99,7 +99,7 @@ function App() {
   }
 
   return (
-    <ShopContextProvider>
+    <ShopContextProvider products={products}>
       <UserContextProvider>
         <FavoritesProvider>
           <ScrollToTop />
