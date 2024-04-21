@@ -32,7 +32,7 @@ const Result = ({ products, results, details, handleProductDetails }) => {
 
   return (
     <>
-      <HStack className="mt-28 mb-3 ml-5">
+      <HStack className="mt-24 mb-3 ml-5">
         <Link to="/" size="xl">
           {/* The default icon size is 1em (16px) */}
           <ArrowLeftIcon boxSize={4} color="green.500" className="mr-1" />
@@ -77,7 +77,7 @@ const Result = ({ products, results, details, handleProductDetails }) => {
           />
         </SimpleGrid>
       ) : (
-        <h1 className="text-base text-center mt-3">
+        <h1 className="text-base text-center mt-3 mb-28">
           Det finns inget sökresultat
         </h1>
       )}
