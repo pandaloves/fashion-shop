@@ -42,8 +42,10 @@ const Favorite = ({ products, details, handleProductDetails }) => {
         </Link>
       </HStack>
 
-      <div className="mt-5 mb-5 mx-7 pt-3 pb-10 px-2 bg-gray-50 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out cursor-pointer">
-        <h1 className="mb-5 ml-6 text-lg font-bold text-[#00df9a]">Favorit</h1>
+      <div className="mt-5 mb-20 mx-1 pt-3 pb-10 px-1">
+        <h1 className="mb-5 ml-6 text-lg font-bold text-center text-[#00df9a]">
+          Favorit
+        </h1>
 
         {/* Mapping over favorite products */}
         {favorites.map((favorite) => {
@@ -56,7 +58,7 @@ const Favorite = ({ products, details, handleProductDetails }) => {
           return (
             <div
               key={uuidv4()}
-              className="flex flex-row justify-between rounded-md mt-5 mb-3 px-1 py-2 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out cursor-pointer"
+              className="flex flex-row justify-between rounded-md mt-5 px-4 py-2 border-b-2 border-slate-100 mb-3 cursor-pointer"
             >
               <h3
                 className="text-base"
@@ -68,7 +70,7 @@ const Favorite = ({ products, details, handleProductDetails }) => {
                 {favorite}
               </h3>
 
-              <div className="flex justify-between ">
+              <div className="flex justify-between">
                 <button
                   className="ml-1 mr-2 bg-[#00df9a] hover:bg-[#00df9a] px-2 py-2 text-white uppercase rounded text-xs tracking-wider cursor-pointer"
                   onClick={() => {
@@ -80,7 +82,7 @@ const Favorite = ({ products, details, handleProductDetails }) => {
                 </button>
 
                 <button
-                  className=" bg-red-600 hover:bg-red-700 px-2 py-2 text-white uppercase rounded text-xs tracking-wider cursor-pointer"
+                  className=" bg-pink-600 hover:bg-pink-700 px-2 py-2 text-white uppercase rounded text-xs tracking-wider cursor-pointer"
                   onClick={() => {
                     handleRemoveFavorite(selectedProduct);
                   }}
@@ -91,6 +93,7 @@ const Favorite = ({ products, details, handleProductDetails }) => {
             </div>
           );
         })}
+
         <ToggleDraw
           products={products}
           details={details}

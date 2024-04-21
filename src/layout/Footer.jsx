@@ -11,7 +11,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="footer footer-expand-lg py-2 bg-black fixed bottom-0 w-full z-50">
+    <div className="footer footer-expand-lg py-2 bg-black fixed bottom-0 w-full z-50 shadow-sm shadow-slate-100">
       <div className="flex gap-7 text-[12px] text-[#fff] justify-center ">
         {iconsTab.map(({ icon }, index) => {
           return (

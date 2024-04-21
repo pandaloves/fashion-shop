@@ -101,8 +101,8 @@ const Checkout = () => {
         </Link>
       </HStack>
 
-      <section className="flex items-center justify-center bg-gray-50 mt-5 mb-28 mx-3 pt-3 pb-10 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out cursor-pointer">
-        <div className="max-w-md w-full px-5 pb-8 shadow-xl shadow-gray-400 rounded">
+      <section className="flex items-center justify-center  mt-24 mb-28 mx-3 pt-3 pb-10  cursor-pointer">
+        <div className="max-w-md w-full bg-gray-50 px-5 pb-8 shadow-xl shadow-gray-400 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out rounded">
           <div>
             <h2 className="mt-5 text-center text-xl font-bold text-[#00df9a]">
               Räkningen
@@ -327,7 +327,7 @@ const Checkout = () => {
             {/* Shipping information */}
             <div className="grid gap-y-2">
               <button
-                className="block w-full select-none bg-blue-600 hover:bg-blue-700 text-center align-middle font-sans px-4 py-3 my-2 rounded text-xs uppercase text-white"
+                className="block w-full select-none bg-pink-600 hover:bg-pink-700 text-center align-middle font-sans px-4 py-3 my-2 rounded text-xs uppercase text-white"
                 type="submit"
                 onClick={handlePayment}
               >

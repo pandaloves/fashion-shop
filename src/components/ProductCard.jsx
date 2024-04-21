@@ -11,7 +11,7 @@ const ProductCard = ({ products, handleClick }) => {
   const onFavoriteStatusChange = handleFavoriteStatusChange;
 
   const handleToggleFavorite = (product) => {
-    toggleFavorite(product); // Pass the entire product object
+    toggleFavorite(product);
     onFavoriteStatusChange(
       product.productName,
       !favorites.includes(product.productName)
@@ -24,7 +24,7 @@ const ProductCard = ({ products, handleClick }) => {
         products.map((element) => (
           <div
             key={element.productId}
-            className="relative flex flex-col items-center rounded-md w-52 h-96 m-4 px-4 py-12 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out cursor-pointer"
+            className="relative flex flex-col items-center rounded-md w-52 h-80 px-4 py-5 m-4 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out cursor-pointer shadow-lg shadow-slate-400"
           >
             <div className="flex flex-1 flex-col justify-center mb-4 relative">
               <div
@@ -39,9 +39,9 @@ const ProductCard = ({ products, handleClick }) => {
                 />
               </div>
 
-              {/* handle adding or removing favorites */}
+              {/* Handle adding or removing favorites */}
               <div
-                className="absolute top-0 right-1 cursor-pointer"
+                className="absolute top-1 right-1 cursor-pointer"
                 onClick={() => handleToggleFavorite(element)}
               >
                 {/* Conditional rendering of heart icon based on favorite status */}
@@ -63,7 +63,10 @@ const ProductCard = ({ products, handleClick }) => {
 
             <div>
               <div onClick={() => handleClick(element)}>
-                <p className="text-base font-bold uppercase">
+                <p
+                  className="font-semibold uppercase"
+                  style={{ fontSize: "10px" }}
+                >
                   {element.productName}
                 </p>
               </div>
@@ -72,7 +75,7 @@ const ProductCard = ({ products, handleClick }) => {
 
               <div className="flex flex-row justify-center">
                 <button
-                  className="mx-2 my-4 bg-[#00df9a] hover:bg-[#00df9a] px-1 py-2 text-white uppercase rounded text-xs tracking-wider w-16 cursor-pointer"
+                  className="mx-2 my-4 bg-[#00df9a] hover:bg-[rgb(12,125,90)] p-2  text-white uppercase rounded text-xs tracking-wider w-16 cursor-pointer"
                   onClick={() => {
                     handleClick(element);
                   }}
@@ -81,7 +84,7 @@ const ProductCard = ({ products, handleClick }) => {
                 </button>
 
                 <button
-                  className="mx-2 my-4 bg-blue-600 w-16 hover:bg-blue-700 px-1 py-2 text-white uppercase rounded text-xs tracking-wider cursor-pointer"
+                  className="mx-2 my-4 bg-pink-600 hover:bg-pink-700 p-2 text-white uppercase rounded text-xs tracking-wider w-16 cursor-pointer"
                   onClick={() => addToCart(element.productId)}
                 >
                   Add

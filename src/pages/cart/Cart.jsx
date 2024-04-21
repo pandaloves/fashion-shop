@@ -53,7 +53,7 @@ const Cart = () => {
                 <p className="mb-1 font-bold text-base uppercase">
                   {product.productName}
                 </p>
-                <p className="text-red-500 text-sm font-semibold">
+                <p className="text-pink-500 text-sm font-semibold">
                   {product.productPrice} SEK
                 </p>
 
@@ -67,7 +67,7 @@ const Cart = () => {
                       -{" "}
                     </button>
                     <input
-                      className="w-8 text-center text-lg font-bold  text-red-500"
+                      className="w-8 text-center text-lg font-bold  text-pink-500"
                       value={cartItems[product.productId]}
                       onChange={(e) =>
                         updateCartItemCount(
@@ -108,14 +108,14 @@ const Cart = () => {
 
             <div className="flex justify-center items-center mt-8">
               <button
-                className="w-40 h-12 bg-blue-600 text-white uppercase border-none rounded-lg mx-2 cursor-pointer"
+                className="w-40 h-12 bg-green-600 text-white uppercase border-none rounded-lg mx-2 cursor-pointer"
                 onClick={() => navigate("/")}
               >
                 {" "}
                 Fortsätt handla{" "}
               </button>
               <button
-                className="w-40 h-12 bg-green-600 text-white uppercase border-none rounded-lg mx-2 cursor-pointer "
+                className="w-40 h-12 bg-pink-600  hover:bg-pink-700  text-white uppercase border-none rounded-lg mx-2 cursor-pointer "
                 onClick={() => {
                   handleOrder();
                 }}

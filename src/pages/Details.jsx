@@ -67,7 +67,7 @@ const Details = ({ products, details }) => {
                       {element.productName}
                     </h3>
 
-                    <p className="text-red-500 text-base font-semibold my-2 mx-2">
+                    <p className="text-pink-500 text-base font-semibold my-2 mx-2">
                       {element.productPrice} SEK
                     </p>
 
@@ -87,7 +87,7 @@ const Details = ({ products, details }) => {
                         -{" "}
                       </button>
                       <input
-                        className="w-8 mx-1 text-center text-lg font-bold  text-red-500"
+                        className="w-8 mx-1 text-center text-lg font-bold  text-pink-500"
                         value={cartItems[element.productId]}
                         onChange={(e) => {
                           updateCartItemCount(
@@ -107,7 +107,7 @@ const Details = ({ products, details }) => {
 
                     <div className="d-flex justify-content-center">
                       <button
-                        className="w-48 h-12 m-2 bg-blue-600 text-white uppercase border-none rounded-lg cursor-pointer"
+                        className="w-48 h-12 m-2 bg-pink-600 text-white uppercase border-none rounded-lg cursor-pointer"
                         onClick={() => addToCart(element.productId)}
                       >
                         Add

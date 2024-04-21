@@ -1,6 +1,6 @@
 const Price = ({ price }) => (
   <div className="relative">
-    <p className="text-base font-semibold text-red-500">{price} SEK</p>
+    <p className="text-xs font-semibold text-pink-600 my-2">{price} SEK</p>
   </div>
 );
 

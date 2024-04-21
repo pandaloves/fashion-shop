@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Layout from "./layout/Layout";
 import Login from "./pages/Login";
-import Logout from "./pages/Logout";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Cart from "./pages/cart/Cart";
@@ -105,7 +104,19 @@ function App() {
         <FavoritesProvider>
           <ScrollToTop />
           <Routes>
-            <Route path="/" element={<Layout />}>
+            <Route
+              path="/"
+              element={
+                <Layout
+                  inputValue={inputValue}
+                  setInputValue={setInputValue}
+                  inputRef={inputRef}
+                  handleSubmit={handleSubmit}
+                  alertOneRef={alertOneRef}
+                  alertTwoRef={alertTwoRef}
+                />
+              }
+            >
               <Route
                 exact
                 path="/"
@@ -114,12 +125,6 @@ function App() {
                     products={products}
                     details={details}
                     handleProductDetails={handleProductDetails}
-                    inputValue={inputValue}
-                    setInputValue={setInputValue}
-                    inputRef={inputRef}
-                    handleSubmit={handleSubmit}
-                    alertOneRef={alertOneRef}
-                    alertTwoRef={alertTwoRef}
                   />
                 }
               />
@@ -135,7 +140,6 @@ function App() {
                 }
               />
               <Route path="login" element={<Login />} />
-              <Route path="logout" element={<Logout />} />
               <Route path="register" element={<Register />} />
               <Route path="/cart" element={<Cart products={products} />} />
               <Route path="/checkout" element={<Checkout />} />
