@@ -67,17 +67,6 @@ function App() {
       p.productName.toLowerCase().includes(keyword)
     );
 
-    if (keyword === "") {
-      alertOneRef.current.style.display = "block";
-      alertTwoRef.current.style.display = "none";
-      return;
-    }
-
-    if (filteredProducts.length === 0) {
-      alertOneRef.current.style.display = "none";
-      alertTwoRef.current.style.display = "block";
-      return;
-    }
 
     setResults(filteredProducts);
     setInputValue("");
@@ -112,8 +101,7 @@ function App() {
                   setInputValue={setInputValue}
                   inputRef={inputRef}
                   handleSubmit={handleSubmit}
-                  alertOneRef={alertOneRef}
-                  alertTwoRef={alertTwoRef}
+                
                 />
               }
             >

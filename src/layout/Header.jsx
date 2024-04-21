@@ -66,23 +66,12 @@ const Header = ({
               }}
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
+              required
             />
             <InputRightElement pointerEvents="none">
               <Search2Icon w={2} h={2} mt={-2} ml={-5} color="gray.400" />
             </InputRightElement>
           </InputGroup>
-
-          {/* Alert for empty input */}
-          <Alert ref={alertOneRef} status="error" display="none">
-            <AlertIcon />
-            Inmatningsrutan kan inte lämnas tom.
-          </Alert>
-
-          {/* Alert for invalid input */}
-          <Alert ref={alertTwoRef} status="error" display="none">
-            <AlertIcon />
-            Ange rätt namn på en produkt.
-          </Alert>
         </FormControl>
       </form>
 
