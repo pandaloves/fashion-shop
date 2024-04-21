@@ -41,7 +41,7 @@ const Header = ({
   };
 
   return (
-    <div className="bg-black flex justify-between items-center h-50 max-w-screen-2xl pl-1 pr-5 py-3 text-white shadow-sm shadow-slate-600 z-50 fixed w-full top-0 left-0">
+    <div className="bg-black flex justify-between items-center h-50 max-w-screen-2xl pl-1 pr-5 py-3 text-white shadow-sm shadow-slate-600 z-50 fixed w-full h-16 top-0 left-0">
       <img className="w-20 h-12" src="/img/logo.png" alt="logo" />
 
       {/* Search form */}
@@ -123,7 +123,7 @@ const Header = ({
         {/* Cart icon */}
         <NavLink to="/cart">
           <GiShoppingCart className="w-7 h-7 cursor-pointer" />
-          <span className="absolute cursor-pointer top-3 right-11 md:top-4 md:right-4 lg:right-5 text-pink-600 rounded-full w-5 h-5 flex items-center justify-center text-xs">
+          <span className="absolute cursor-pointer top-2 right-11 md:right-4 lg:right-5 text-pink-600 rounded-full w-5 h-5 flex items-center justify-center text-xs">
             {totalProducts}
           </span>
         </NavLink>
