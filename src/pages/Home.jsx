@@ -3,32 +3,9 @@ import { v4 as uuidv4 } from "uuid";
 import { ToastContainer } from "react-toastify";
 import ToggleDraw from "../components/ToggleDraw";
 import { useState } from "react";
-import {
-  AbsoluteCenter,
-  Alert,
-  AlertIcon,
-  Box,
-  Button,
-  Divider,
-  FormControl,
-  Input,
-  InputGroup,
-  InputRightElement,
-  useDisclosure,
-} from "@chakra-ui/react";
-import { Search2Icon } from "@chakra-ui/icons";
+import { AbsoluteCenter, Box, Divider, useDisclosure } from "@chakra-ui/react";
 
-const Home = ({
-  products,
-  details,
-  handleProductDetails,
-  inputValue,
-  setInputValue,
-  inputRef,
-  handleSubmit,
-  alertOneRef,
-  alertTwoRef,
-}) => {
+const Home = ({ products, details, handleProductDetails }) => {
   const [openDrawers, setOpenDrawers] = useState([]);
   const { onOpen, onClose } = useDisclosure();
 
@@ -46,64 +23,15 @@ const Home = ({
 
   return (
     <>
-      <div className="flex flex-wrap justify-center mt-24 mb-2 mx-3 pt-3 pb-10">
-        {/* Search form */}
-        <form onSubmit={handleSubmit}>
-          <FormControl textAlign={["center", "center", "left", "left"]}>
-            <InputGroup>
-              <Input
-                ref={inputRef}
-                type="text"
-                placeholder="Ange en produkt t.ex. dress"
-                size="md"
-                mb={2}
-                fontSize="12px"
-                pl="2"
-                style={{
-                  border: "2px solid #00df9a",
-                  width: "260px",
-                }}
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-              />
-              <InputRightElement pointerEvents="none">
-                <Search2Icon color="gray.600" marginLeft={-10} />
-              </InputRightElement>
-            </InputGroup>
-
-            {/* Alert for empty input */}
-            <Alert ref={alertOneRef} status="error" display="none">
-              <AlertIcon />
-              Inmatningsrutan kan inte lämnas tom.
-            </Alert>
-
-            {/* Alert for invalid input */}
-            <Alert ref={alertTwoRef} status="error" display="none">
-              <AlertIcon />
-              Ange rätt namn på en produkt.
-            </Alert>
-
-            {/* Submit button */}
-            <Button
-              borderRadius="8px"
-              colorScheme="green"
-              variant="solid"
-              py="6"
-              px="16"
-              my="5"
-              mx="auto"
-              lineHeight="1"
-              size="md"
-              type="submit"
-            >
-              Sök
-            </Button>
-          </FormControl>
-        </form>
+      <div className="flex flex-wrap justify-center mt-24 mb-1 mx-3 pt-3 pb-10">
+        {/* Poster */}
+        <div className="flex justify-center items-center mx-3 mb-5 p-2">
+          <img src="/img/poster.jpg" />
+        </div>
       </div>
 
       {/* Divider */}
-      <Box position="relative" padding="10" margin="1">
+      <Box position="relative" padding="10" marginTop="-5">
         <Divider />
         <AbsoluteCenter
           bg={"green.400"}
@@ -112,8 +40,13 @@ const Home = ({
           py="2"
           fontSize="12px"
           color="white"
+          _hover={{
+            "&:hover": {
+              bg: "green.600",
+            },
+          }}
         >
-          Populära Produkter
+          Produkter
         </AbsoluteCenter>
       </Box>
 

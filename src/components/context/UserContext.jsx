@@ -83,7 +83,7 @@ export const UserContextProvider = ({ children }) => {
     }
   };
 
-  // handle order
+  // Handle order
   const handleOrder = async () => {
     if (userId === null) {
       toast.warning("Vänligen logga in först!");

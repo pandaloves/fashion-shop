@@ -98,14 +98,14 @@ const Register = () => {
 
   return (
     <>
-      <div className="flex items-center justify-center bg-gray-50 mt-24 mb-28 mx-3 pt-3 pb-10 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out cursor-pointer">
-        <div className="max-w-md w-full px-5 pb-8 shadow-xl shadow-gray-400 rounded">
+      <div className="flex items-center justify-center mt-24 mb-28 mx-3 pt-3 pb-10  cursor-pointer">
+        <div className="max-w-md w-full bg-gray-50 px-5 pb-8 shadow-xl shadow-gray-400 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out rounded">
           <div>
             <h2 className="mt-5 text-center text-xl font-bold text-[#00df9a]">
               Registrera
             </h2>
           </div>
-          <form className="mt-8 space-y-6">
+          <form className="mt-5 space-y-6">
             <div className="flex gap-4 flex-col">
               <div className="relative w-full min-w-[200px] h-10">
                 <input
@@ -323,7 +323,7 @@ const Register = () => {
             <div>
               <button
                 type="submit"
-                className="mt-6 block w-full select-none  bg-blue-600 hover:bg-blue-700 text-center align-middle font-sans px-4 py-2 rounded text-xs uppercase text-white"
+                className="mt-6 block w-full select-none  bg-pink-600 hover:bg-pink-700 text-center align-middle font-sans px-4 py-2 rounded text-xs uppercase text-white"
                 onClick={handleRegister}
               >
                 Registrera
