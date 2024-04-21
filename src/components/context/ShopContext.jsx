@@ -1,18 +1,17 @@
 import { createContext, useState } from "react";
-import products from "../../products";
 import { toast } from "react-toastify";
 
 export const ShopContext = createContext(null);
 
 const getDefaultCart = () => {
   let cart = {};
-  for (let i = 1; i < products.length + 1; i++) {
+  for (let i = 1; i < 22; i++) {
     cart[i] = 0;
   }
   return cart;
 };
 
-export const ShopContextProvider = (props) => {
+export const ShopContextProvider = ({ products, children }) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
   const [cartCount, setCartCount] = useState(0);
   const [userId, setUserId] = useState(null);
@@ -155,8 +154,6 @@ export const ShopContextProvider = (props) => {
   };
 
   return (
-    <ShopContext.Provider value={contextValue}>
-      {props.children}
-    </ShopContext.Provider>
+    <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
   );
 };

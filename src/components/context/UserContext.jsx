@@ -137,7 +137,7 @@ export const UserContextProvider = ({ children }) => {
       setTimeout(() => {
         checkout();
         navigate("/checkout");
-      }, 1000);
+      }, 2000);
     } catch (error) {
       toast.error("Det gick inte att skicka beställning. Var god försök igen.");
       console.error("Fel vid beställning:", error);

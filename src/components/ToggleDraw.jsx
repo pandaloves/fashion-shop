@@ -38,7 +38,7 @@ const ToggleDraw = ({ products, openDrawers, handleCloseDrawer }) => {
         <Drawer
           key={uuidv4()}
           onClose={() => handleDrawerClose(element.productId)}
-          isOpen={drawerStates[element.productId]} // Use local state to control isOpen
+          isOpen={drawerStates[element.productId]} 
           size={"xs"}
         >
           <DrawerOverlay />

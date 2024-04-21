@@ -1,14 +1,13 @@
 import { useContext } from "react";
-import { ShopContext } from "../../components/context/ShopContext";
-import products from "../../products";
+import { ShopContext } from "../components/context/ShopContext";
 import { v4 as uuidv4 } from "uuid";
 import { ToastContainer } from "react-toastify";
-import { UserContext } from "../../components/context/UserContext";
+import { UserContext } from "../components/context/UserContext";
 import { Link, useNavigate } from "react-router-dom";
 import { HStack } from "@chakra-ui/react";
 import { ArrowLeftIcon } from "@chakra-ui/icons";
 
-const Cart = () => {
+const Cart = ({ products }) => {
   const {
     cartItems,
     removeFromCart,
