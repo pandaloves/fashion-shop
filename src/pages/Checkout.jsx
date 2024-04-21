@@ -75,14 +75,14 @@ const Checkout = () => {
       }
 
       toast.success(
-        `Laddat upp frakt uppgifter och betalat ${totalPay} SEK framgångsrikt!`
+        `Tack för din betalning med ${totalPay} SEK! Vårt team håller på att packa dina saker. Vi hör av oss igen när vi har skickat paketet.`
       );
 
       resetCart();
 
       setTimeout(() => {
         navigate("/");
-      }, 3000);
+      }, 6000);
     } catch (error) {
       toast.error(
         "Misslyckats med betalningen. Kontrollera om din information är korrekt."
@@ -103,8 +103,11 @@ const Checkout = () => {
 
       <section className="flex items-center justify-center  mt-24 mb-28 mx-3 pt-3 pb-10  cursor-pointer">
         <div className="max-w-md w-full bg-gray-50 px-5 pb-8 shadow-xl shadow-gray-400 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out rounded">
+          <h1 className="mb-5 ml-6 text-lg font-bold text-center text-[#00df9a]">
+            Checkout
+          </h1>
           <div>
-            <h2 className="mt-5 text-center text-xl font-bold text-[#00df9a]">
+            <h2 className="mt-5 mb-2 text-start text-lg font-bold text-[#00df9a]">
               Räkningen
             </h2>
 
@@ -112,11 +115,11 @@ const Checkout = () => {
           </div>
 
           <div>
-            <h2 className="mt-5 text-center text-xl font-bold text-[#00df9a]">
+            <h2 className="mt-5 mb-2 text-start text-lg font-bold text-[#00df9a]">
               Frakt uppgifter
             </h2>
           </div>
-          <form className="mt-8 space-y-6">
+          <form className="space-y-6">
             <div className="flex gap-4 flex-col">
               <div className="relative w-full min-w-[200px] h-10">
                 <input
@@ -232,7 +235,7 @@ const Checkout = () => {
                 </label>
               </div>
 
-              <h1 className="mt-5 text-center text-xl font-bold text-[#00df9a]">
+              <h1 className="mt-5 text-start text-lg font-bold text-[#00df9a]">
                 Betalning
               </h1>
 
