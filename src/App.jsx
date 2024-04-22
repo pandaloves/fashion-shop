@@ -22,8 +22,6 @@ function App() {
   const inputRef = useRef();
   const navigate = useNavigate();
   const [results, setResults] = useState([]);
-  const alertOneRef = useRef();
-  const alertTwoRef = useRef();
 
   // Handle fetch all products
   useEffect(() => {
@@ -67,7 +65,6 @@ function App() {
       p.productName.toLowerCase().includes(keyword)
     );
 
-
     setResults(filteredProducts);
     setInputValue("");
 
@@ -101,7 +98,6 @@ function App() {
                   setInputValue={setInputValue}
                   inputRef={inputRef}
                   handleSubmit={handleSubmit}
-                
                 />
               }
             >
