@@ -1,20 +1,22 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 export const ShopContext = createContext(null);
 
-const getDefaultCart = () => {
-  let cart = {};
-  for (let i = 1; i < 22; i++) {
-    cart[i] = 0;
-  }
-  return cart;
-};
-
 export const ShopContextProvider = ({ products, children }) => {
-  const [cartItems, setCartItems] = useState(getDefaultCart());
+  const [cartItems, setCartItems] = useState({});
   const [cartCount, setCartCount] = useState(0);
   const [userId, setUserId] = useState(null);
+
+  // Update initialCartItems whenever products change
+  useEffect(() => {
+    if (products.length > 0) {
+      const initialCartItems = Object.fromEntries(
+        products.map((product) => [product.productId, 0])
+      );
+      setCartItems(initialCartItems);
+    }
+  }, [products]);
 
   const getTotalCartAmount = () => {
     let totalAmount = 0;
@@ -104,7 +106,10 @@ export const ShopContextProvider = ({ products, children }) => {
   };
 
   const resetCart = () => {
-    setCartItems(getDefaultCart());
+    const initialCartItems = Object.fromEntries(
+      products.map((product) => [product.productId, 0])
+    );
+    setCartItems(initialCartItems);
     setCartCount(0);
   };
 
@@ -135,7 +140,10 @@ export const ShopContextProvider = ({ products, children }) => {
   };
 
   const checkout = () => {
-    setCartItems(getDefaultCart());
+    const initialCartItems = Object.fromEntries(
+      products.map((product) => [product.productId, 0])
+    );
+    setCartItems(initialCartItems);
   };
 
   const contextValue = {
