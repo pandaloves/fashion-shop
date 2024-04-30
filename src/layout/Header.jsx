@@ -16,14 +16,7 @@ import {
 } from "@chakra-ui/react";
 import { Search2Icon } from "@chakra-ui/icons";
 
-const Header = ({
-  inputValue,
-  setInputValue,
-  inputRef,
-  handleSubmit,
-  alertOneRef,
-  alertTwoRef,
-}) => {
+const Header = ({ inputValue, setInputValue, inputRef, handleSubmit }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { getTotalCartProducts } = useContext(ShopContext);
   const totalProducts = getTotalCartProducts();
@@ -41,8 +34,12 @@ const Header = ({
   };
 
   return (
-    <div className="bg-black flex justify-between items-center h-50 max-w-screen-2xl pl-1 pr-5 py-3 text-white shadow-sm shadow-slate-600 z-50 fixed w-full h-16 top-0 left-0">
-      <img className="w-20 h-12" src="/img/logo.png" alt="logo" />
+    <div className="bg-black flex justify-between items-center h-50 max-w-screen-2xl pl-1 pr-5 py-3 text-white shadow-sm shadow-slate-600 z-50 w-screen fixed h-16 top-0 left-0">
+      <img
+        className="w-24 h-20 md:w-32 lg:w-40"
+        src="/img/logo.png"
+        alt="logo"
+      />
 
       {/* Search form */}
       <form onSubmit={handleSubmit}>
@@ -61,7 +58,7 @@ const Header = ({
               pl="2"
               style={{
                 border: "2px solid #00df9a",
-                width: "110px",
+                width: "80%",
                 height: "29px",
               }}
               value={inputValue}
@@ -69,7 +66,7 @@ const Header = ({
               required
             />
             <InputRightElement pointerEvents="none">
-              <Search2Icon w={2} h={2} mt={-2} ml={-5} color="gray.400" />
+              <Search2Icon w={2} h={2} mt={-2} ml={-20} color="gray.400" />
             </InputRightElement>
           </InputGroup>
         </FormControl>
