@@ -36,7 +36,7 @@ const Header = ({ inputValue, setInputValue, inputRef, handleSubmit }) => {
   return (
     <div className="bg-black flex justify-between items-center h-50 max-w-screen-2xl pl-1 pr-5 py-3 text-white shadow-sm shadow-slate-600 z-50 w-screen fixed h-16 top-0 left-0">
       <img
-        className="w-24 h-20 md:w-32 lg:w-40"
+        className="w-28 h-20 md:w-32 lg:w-52"
         src="/img/logo.png"
         alt="logo"
       />
