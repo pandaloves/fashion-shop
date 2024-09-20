@@ -123,7 +123,7 @@ const Header = ({ inputValue, setInputValue, inputRef, handleSubmit }) => {
       <div
         className={
           isOpen
-            ? "fixed z-50 md:hidden right-0 top-14 w-[39%] h-48 border-r rounded-bl-xl border-r-gray-900 bg-[#000300] ease-in-out duration-500"
+            ? "fixed z-50 md:hidden right-0 top-16 w-[39%] h-48 border-r rounded-bl-xl border-r-gray-900 bg-[#000300] ease-in-out duration-500"
             : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]"
         }
       >
