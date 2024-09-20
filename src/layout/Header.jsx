@@ -57,7 +57,7 @@ const Header = ({ inputValue, setInputValue, inputRef, handleSubmit }) => {
                 border: "2px solid #00df9a",
                 height: "29px",
               }}
-              className="text-base md:text-xs w-full md:w-2/3 lg:w-1/2"
+              className="w-full md:w-2/3 lg:w-1/2 text-xs md:text-sm lg:text-base"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               required
