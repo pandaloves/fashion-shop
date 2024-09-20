@@ -1,7 +1,8 @@
 import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { jwtDecode } from "jwt-decode"; // Fix import statement
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import { ShopContext } from "./ShopContext";
 
 export const UserContext = createContext(null);
@@ -31,13 +32,9 @@ export const UserContextProvider = ({ children }) => {
     };
 
     try {
-      const response = await fetch(
-        "https://localhost:7140/api/ShopUsers/login",
+      const response = await axios.post(
+        "https://shop20240920093117.azurewebsites.net/api/ShopUsers/login",
         {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
           body: JSON.stringify(myObj),
         }
       );
@@ -102,13 +99,9 @@ export const UserContextProvider = ({ children }) => {
         totalAmount: totalAmount,
       };
 
-      const response = await fetch(
-        "https://localhost:7140/api/Orders/create-order",
+      const response = await axios.post(
+        "https://shop20240920093117.azurewebsites.net/api/Orders/create-order",
         {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
           body: JSON.stringify(order),
         }
       );
