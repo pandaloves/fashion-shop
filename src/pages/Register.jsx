@@ -98,7 +98,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="flex items-center justify-center mt-24 mb-28 mx-3 pt-3 pb-10  cursor-pointer">
+      <div className="flex items-center justify-center my-24 mx-3 pt-3 pb-10  cursor-pointer">
         <div className="max-w-md w-full bg-gray-50 px-5 pb-8 shadow-xl shadow-gray-400 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out rounded">
           <div>
             <h2 className="mt-5 text-center text-xl font-bold text-[#00df9a]">
