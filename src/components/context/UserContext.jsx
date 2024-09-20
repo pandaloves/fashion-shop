@@ -33,7 +33,7 @@ export const UserContextProvider = ({ children }) => {
 
     try {
       const response = await axios.post(
-        "https://shop20240920093117.azurewebsites.net/api/ShopUsers/login",
+        "https://localhost:7140/api/ShopUsers/login",
         {
           body: JSON.stringify(myObj),
         }
@@ -100,7 +100,7 @@ export const UserContextProvider = ({ children }) => {
       };
 
       const response = await axios.post(
-        "https://shop20240920093117.azurewebsites.net/api/Orders/create-order",
+        "https://localhost:7140/api/Orders/create-order",
         {
           body: JSON.stringify(order),
         }

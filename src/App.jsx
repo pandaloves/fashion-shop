@@ -28,9 +28,7 @@ function App() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(
-          "https://shop20240920093117.azurewebsites.net/api/Products"
-        );
+        const response = await axios.get("https://localhost:7140/api/Products");
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error.message);
@@ -44,7 +42,7 @@ function App() {
   const handleProductDetails = async (id) => {
     try {
       const response = await axios.get(
-        `https://shop20240920093117.azurewebsites.net/api/Products/${id}`
+        `https://localhost:7140/api/Products/${id}`
       );
 
       if (!response.ok) {

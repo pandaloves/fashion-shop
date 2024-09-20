@@ -58,7 +58,7 @@ export const ShopContextProvider = ({ products, children }) => {
         ],
       };
       const response = await axios.post(
-        "https://shop20240920093117.azurewebsites.net/api/Cart/add-to-cart",
+        "https://localhost:7140/api/Cart/add-to-cart",
         {
           body: JSON.stringify(myObj),
         }
@@ -82,7 +82,7 @@ export const ShopContextProvider = ({ products, children }) => {
     };
     try {
       const response = await axios.post(
-        `https://shop20240920093117.azurewebsites.net/api/Cart/decrement-cart-item/${userId}/${productId}`,
+        `https://localhost:7140/api/Cart/decrement-cart-item/${userId}/${productId}`,
         {
           body: JSON.stringify(myObj),
         }
@@ -113,7 +113,7 @@ export const ShopContextProvider = ({ products, children }) => {
   const clearCart = async () => {
     try {
       const response = await axios.delete(
-        `https://shop20240920093117.azurewebsites.net/api/Cart/delete-cart/${userId}`
+        `https://localhost:7140/api/Cart/delete-cart/${userId}`
       );
       if (!response.ok) {
         throw new Error("Kan inte rensa kundvagnen!");

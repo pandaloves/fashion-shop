@@ -62,7 +62,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "https://shop20240920093117.azurewebsites.net/api/ShopUsers/register",
+        "https://localhost:7140/api/ShopUsers/register",
         {
           body: JSON.stringify(myObj),
         }
