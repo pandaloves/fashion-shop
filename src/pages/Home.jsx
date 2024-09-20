@@ -25,8 +25,11 @@ const Home = ({ products, details, handleProductDetails }) => {
     <>
       <div className="flex flex-wrap justify-center mt-24 mb-1 mx-3 pt-3 pb-10">
         {/* Poster */}
-        <div className="flex justify-center items-center mx-3 mb-5 p-2">
-          <img src="/img/poster.jpg" />
+        <div className="flex justify-center items-center mx-3 p-2">
+          <img
+            src="/img/poster.jpg"
+            className="rounded-md w-full h-auto md:w-3/4 lg:w-2/3 xl:w-1/2"
+          />
         </div>
       </div>
 

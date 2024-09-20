@@ -35,7 +35,7 @@ const Favorite = ({ products, details, handleProductDetails }) => {
 
   return (
     <>
-      <HStack className="mt-24 mb-3 ml-5">
+      <HStack className="mt-28 mb-3 ml-5">
         <Link to="/" size="xl">
           <ArrowLeftIcon boxSize={4} color="green.500" className="mr-1" />
           Tillbaka

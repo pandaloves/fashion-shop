@@ -32,9 +32,9 @@ const Header = ({ inputValue, setInputValue, inputRef, handleSubmit }) => {
   };
 
   return (
-    <div className="bg-black flex justify-between items-center h-50 max-w-full pl-1 pr-5 py-3 text-white shadow-sm shadow-slate-600 z-50 fixed h-16 top-0 left-0 w-full">
+    <div className="bg-black flex justify-between items-center h-24 max-w-full pl-1 pr-5 py-3 text-white shadow-sm shadow-slate-600 z-50 fixed top-0 left-0 w-full">
       <img
-        className="w-28 h-20 md:w-32 lg:w-52"
+        className="w-28 h-28 md:w-32 lg:w-52"
         src="/img/logo.png"
         alt="logo"
       />
@@ -50,21 +50,21 @@ const Header = ({ inputValue, setInputValue, inputRef, handleSubmit }) => {
               ref={inputRef}
               type="text"
               placeholder="Sök t.ex. dress"
-              size="md"
+              size="lg"
               mr={3}
-              fontSize="9px"
+              fontSize="15px"
               pl="2"
               style={{
                 border: "2px solid #00df9a",
-                width: "80%",
                 height: "29px",
               }}
+              className="w-full md:w-2/3 lg:w-1/2"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               required
             />
             <InputRightElement pointerEvents="none">
-              <Search2Icon w={2} h={2} mt={-2} ml={-20} color="gray.400" />
+              <Search2Icon w={2} h={2} mt={-2} ml={-22} color="gray.400" />
             </InputRightElement>
           </InputGroup>
         </FormControl>
@@ -103,11 +103,11 @@ const Header = ({ inputValue, setInputValue, inputRef, handleSubmit }) => {
       </div>
 
       {/* Mobile navigation */}
-      <div className="flex flex-row justify-between gap-2">
+      <div className="flex flex-row justify-between gap-2 mr-5">
         {/* Cart icon */}
         <NavLink to="/cart">
           <GiShoppingCart className="w-7 h-7 cursor-pointer" />
-          <span className="absolute cursor-pointer top-2 right-11 md:right-4 lg:right-5 text-pink-600 rounded-full w-5 h-5 flex items-center justify-center text-xs">
+          <span className="absolute cursor-pointer top-6 mr-5 text-pink-600 rounded-full w-5 h-5 flex items-center justify-center text-xs">
             {totalProducts}
           </span>
         </NavLink>
