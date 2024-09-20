@@ -61,7 +61,7 @@ const Checkout = () => {
 
     try {
       const response = await axios.post(
-        "https://shop20240920093117.azurewebsites.net/api/Payments/create-payment",
+        "https://localhost:7140/api/Payments/create-payment",
         {
           body: JSON.stringify(myPayment),
         }
