@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import axios from "axios";
 import { toast } from "react-toastify";
 
 export const ShopContext = createContext(null);
@@ -57,9 +56,13 @@ export const ShopContextProvider = ({ products, children }) => {
           },
         ],
       };
-      const response = await axios.post(
+      const response = await fetch(
         "https://localhost:7140/api/Cart/add-to-cart",
         {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(myObj),
         }
       );
@@ -81,9 +84,13 @@ export const ShopContextProvider = ({ products, children }) => {
       productId: productId,
     };
     try {
-      const response = await axios.post(
+      const response = await fetch(
         `https://localhost:7140/api/Cart/decrement-cart-item/${userId}/${productId}`,
         {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(myObj),
         }
       );
@@ -112,8 +119,11 @@ export const ShopContextProvider = ({ products, children }) => {
 
   const clearCart = async () => {
     try {
-      const response = await axios.delete(
-        `https://localhost:7140/api/Cart/delete-cart/${userId}`
+      const response = await fetch(
+        `https://localhost:7140/api/Cart/delete-cart/${userId}`,
+        {
+          method: "DELETE",
+        }
       );
       if (!response.ok) {
         throw new Error("Kan inte rensa kundvagnen!");

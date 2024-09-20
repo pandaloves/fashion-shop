@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -61,9 +60,13 @@ const Register = () => {
     };
 
     try {
-      const response = await axios.post(
+      const response = await fetch(
         "https://localhost:7140/api/ShopUsers/register",
         {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(myObj),
         }
       );

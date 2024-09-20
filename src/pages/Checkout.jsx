@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import pay from "../assets/pay/pay.png";
-import axios from "axios";
 import { ShopContext } from "../components/context/ShopContext";
 import { UserContext } from "../components/context/UserContext";
 import { ToastContainer, toast } from "react-toastify";
@@ -60,9 +59,13 @@ const Checkout = () => {
     };
 
     try {
-      const response = await axios.post(
+      const response = await fetch(
         "https://localhost:7140/api/Payments/create-payment",
         {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(myPayment),
         }
       );
