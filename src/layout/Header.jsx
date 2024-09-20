@@ -52,13 +52,12 @@ const Header = ({ inputValue, setInputValue, inputRef, handleSubmit }) => {
               placeholder="Sök t.ex. dress"
               size="lg"
               mr={3}
-              className="text-base md:text-xs"
               pl="2"
               style={{
                 border: "2px solid #00df9a",
                 height: "29px",
               }}
-              className="w-full md:w-2/3 lg:w-1/2"
+              className="text-base md:text-xs w-full md:w-2/3 lg:w-1/2"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               required
