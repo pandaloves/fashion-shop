@@ -7,8 +7,6 @@ import { UserContext } from "../components/context/UserContext";
 import { toast } from "react-toastify";
 
 import {
-  Alert,
-  AlertIcon,
   FormControl,
   Input,
   InputGroup,
@@ -34,7 +32,7 @@ const Header = ({ inputValue, setInputValue, inputRef, handleSubmit }) => {
   };
 
   return (
-    <div className="bg-black flex justify-between items-center h-50 max-w-screen-2xl pl-1 pr-5 py-3 text-white shadow-sm shadow-slate-600 z-50 w-screen fixed h-16 top-0 left-0">
+    <div className="bg-black flex justify-between items-center h-50 max-w-full pl-1 pr-5 py-3 text-white shadow-sm shadow-slate-600 z-50 fixed h-16 top-0 left-0 w-full">
       <img
         className="w-28 h-20 md:w-32 lg:w-52"
         src="/img/logo.png"

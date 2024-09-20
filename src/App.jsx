@@ -12,7 +12,6 @@ import { FavoritesProvider } from "./components/context/useFavorites";
 import NotFound from "./pages/NotFound";
 import { useNavigate } from "react-router-dom";
 import Result from "./pages/Result";
-import axios from "axios";
 import { UserContextProvider } from "./components/context/UserContext";
 import { ShopContextProvider } from "./components/context/ShopContext";
 
@@ -27,12 +26,15 @@ function App() {
   // Handle fetch all products
   useEffect(() => {
     const fetchProducts = async () => {
-      try {
-        const response = await axios.get("https://localhost:7140/api/Products");
-        setProducts(response.data);
-      } catch (error) {
-        console.error("Error fetching products:", error.message);
+      const response = await fetch("https://localhost:7140/api/Products");
+
+      if (!response.ok) {
+        throw new Error("Unable to fetch data");
       }
+
+      const data = await response.json();
+
+      setProducts(data);
     };
 
     fetchProducts();
@@ -41,15 +43,14 @@ function App() {
   // Fetch details of a product by its ID
   const handleProductDetails = async (id) => {
     try {
-      const response = await axios.get(
-        `https://localhost:7140/api/Products/${id}`
-      );
+      const response = await fetch(`https://localhost:7140/api/Products/${id}`);
 
       if (!response.ok) {
         throw new Error("Unable to fetch details");
       }
 
-      setDetails(response.data);
+      const data = await response.json();
+      setDetails(data);
     } catch (error) {
       console.error("Error fetching details:", error);
     }
