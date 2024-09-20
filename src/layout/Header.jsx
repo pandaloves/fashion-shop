@@ -52,7 +52,7 @@ const Header = ({ inputValue, setInputValue, inputRef, handleSubmit }) => {
               placeholder="Sök t.ex. dress"
               size="lg"
               mr={3}
-              fontSize="15px"
+              className="text-base md:text-xs"
               pl="2"
               style={{
                 border: "2px solid #00df9a",
