@@ -60,7 +60,7 @@ const Checkout = () => {
 
     try {
       const response = await fetch(
-        "https://localhost:7140/api/Payments/create-payment",
+        "https://shop20240920093117.azurewebsites.net/api/Payments/create-payment",
         {
           method: "POST",
           headers: {

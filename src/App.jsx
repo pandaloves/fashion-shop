@@ -26,7 +26,9 @@ function App() {
   // Handle fetch all products
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch("https://localhost:7140/api/Products");
+      const response = await fetch(
+        "https://shop20240920093117.azurewebsites.net/api/Products"
+      );
 
       if (!response.ok) {
         throw new Error("Unable to fetch data");
@@ -43,8 +45,9 @@ function App() {
   // Fetch details of a product by its ID
   const handleProductDetails = async (id) => {
     try {
-      const response = await fetch(`https://localhost:7140/api/Products/${id}`);
-
+      const response = await fetch(
+        `https://shop20240920093117.azurewebsites.net/api/Products/${id}`
+      );
       if (!response.ok) {
         throw new Error("Unable to fetch details");
       }

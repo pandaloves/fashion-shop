@@ -32,7 +32,7 @@ export const UserContextProvider = ({ children }) => {
 
     try {
       const response = await fetch(
-        "https://localhost:7140/api/ShopUsers/login",
+        "https://shop20240920093117.azurewebsites.net/api/ShopUsers/login",
         {
           method: "POST",
           headers: {
@@ -103,7 +103,7 @@ export const UserContextProvider = ({ children }) => {
       };
 
       const response = await fetch(
-        "https://localhost:7140/api/Orders/create-order",
+        "https://shop20240920093117.azurewebsites.net/api/Orders/create-order",
         {
           method: "POST",
           headers: {
