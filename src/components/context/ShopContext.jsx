@@ -57,7 +57,7 @@ export const ShopContextProvider = ({ products, children }) => {
         ],
       };
       const response = await fetch(
-        "https://localhost:7140/api/Cart/add-to-cart",
+        "https://shop20240920093117.azurewebsites.net/api/Cart/add-to-cart",
         {
           method: "POST",
           headers: {
@@ -85,7 +85,7 @@ export const ShopContextProvider = ({ products, children }) => {
     };
     try {
       const response = await fetch(
-        `https://localhost:7140/api/Cart/decrement-cart-item/${userId}/${productId}`,
+        `https://shop20240920093117.azurewebsites.net/api/Cart/decrement-cart-item/${userId}/${productId}`,
         {
           method: "POST",
           headers: {
@@ -120,7 +120,7 @@ export const ShopContextProvider = ({ products, children }) => {
   const clearCart = async () => {
     try {
       const response = await fetch(
-        `https://localhost:7140/api/Cart/delete-cart/${userId}`,
+        `https://shop20240920093117.azurewebsites.net/api/Cart/delete-cart/${userId}`,
         {
           method: "DELETE",
         }

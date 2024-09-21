@@ -61,7 +61,7 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "https://localhost:7140/api/ShopUsers/register",
+        "https://shop20240920093117.azurewebsites.net/api/ShopUsers/register",
         {
           method: "POST",
           headers: {
