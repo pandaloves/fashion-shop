@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await fetch(
-        "https://shop20240920093117.azurewebsites.net/api/Products"
+        "https://shop20240921105532.azurewebsites.net/api/Products"
       );
 
       if (!response.ok) {
@@ -46,7 +46,7 @@ function App() {
   const handleProductDetails = async (id) => {
     try {
       const response = await fetch(
-        `https://shop20240920093117.azurewebsites.net/api/Products/${id}`
+        `https://shop20240921105532.azurewebsites.net/api/Products/${id}`
       );
       if (!response.ok) {
         throw new Error("Unable to fetch details");
