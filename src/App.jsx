@@ -14,76 +14,69 @@ import { useNavigate } from "react-router-dom";
 import Result from "./pages/Result";
 import { UserContextProvider } from "./components/context/UserContext";
 import { ShopContextProvider } from "./components/context/ShopContext";
+import { ClipLoader } from "react-spinners"; 
 
 function App() {
   const [products, setProducts] = useState([]);
   const [details, setDetails] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingDetails, setIsLoadingDetails] = useState(false);
   const inputRef = useRef();
   const navigate = useNavigate();
   const [results, setResults] = useState([]);
 
-  // Handle fetch all products
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch(
-        "https://shop20240921105532.azurewebsites.net/api/Products"
-      );
-
-      if (!response.ok) {
-        throw new Error("Unable to fetch data");
+      setIsLoading(true);
+      try {
+        const response = await fetch(
+          "https://shop20240921105532.azurewebsites.net/api/Products"
+        );
+        if (!response.ok) throw new Error("Unable to fetch data");
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        setIsLoading(false);
       }
-
-      const data = await response.json();
-
-      setProducts(data);
     };
-
     fetchProducts();
   }, []);
 
-  // Fetch details of a product by its ID
   const handleProductDetails = async (id) => {
+    setIsLoadingDetails(true);
     try {
       const response = await fetch(
         `https://shop20240921105532.azurewebsites.net/api/Products/${id}`
       );
-      if (!response.ok) {
-        throw new Error("Unable to fetch details");
-      }
-
+      if (!response.ok) throw new Error("Unable to fetch details");
       const data = await response.json();
       setDetails(data);
     } catch (error) {
       console.error("Error fetching details:", error);
+    } finally {
+      setIsLoadingDetails(false);
     }
   };
 
-  // Handle search products
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const keyword = inputRef.current.value.trim().toLowerCase();
     const filteredProducts = products.filter((p) =>
       p.productName.toLowerCase().includes(keyword)
     );
-
     setResults(filteredProducts);
     setInputValue("");
-
-    navigate("/result", {
-      replace: true,
-      state: { results: filteredProducts },
-    });
+    navigate("/result", { replace: true, state: { results: filteredProducts } });
   };
 
   function ScrollToTop() {
     const { pathname } = useLocation();
-
     React.useEffect(() => {
       window.scrollTo(0, 0);
     }, [pathname]);
-
     return null;
   }
 
@@ -108,22 +101,30 @@ function App() {
                 exact
                 path="/"
                 element={
-                  <Home
-                    products={products}
-                    details={details}
-                    handleProductDetails={handleProductDetails}
-                  />
+                    <Home
+                      products={products}
+                      details={details}
+                      handleProductDetails={handleProductDetails}
+                      isLoadingDetails={isLoadingDetails}
+                    />
                 }
               />
               <Route
                 path="result"
                 element={
-                  <Result
-                    products={products}
-                    results={results}
-                    details={details}
-                    handleProductDetails={handleProductDetails}
-                  />
+                  isLoading ? (
+                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "200px", marginTop: "10px" }}>
+                      <ClipLoader color="#3498db" size={50} />
+                    </div>
+                  ) : (
+                    <Result
+                      products={products}
+                      results={results}
+                      details={details}
+                      handleProductDetails={handleProductDetails}
+                      isLoadingDetails={isLoadingDetails}
+                    />
+                  )
                 }
               />
               <Route path="login" element={<Login />} />
@@ -133,11 +134,18 @@ function App() {
               <Route
                 path="/favorite"
                 element={
-                  <Favorite
-                    products={products}
-                    details={details}
-                    handleProductDetails={handleProductDetails}
-                  />
+                  isLoading ? (
+                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "200px" }}>
+                      <ClipLoader color="#3498db" size={50} />
+                    </div>
+                  ) : (
+                    <Favorite
+                      products={products}
+                      details={details}
+                      handleProductDetails={handleProductDetails}
+                      isLoadingDetails={isLoadingDetails}
+                    />
+                  )
                 }
               />
               <Route path="/contact" element={<Contact />} />
