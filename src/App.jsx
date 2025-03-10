@@ -31,7 +31,7 @@ function App() {
       setIsLoading(true);
       try {
         const response = await fetch(
-          "https://shop20240921105532.azurewebsites.net/api/Products"
+          "https://shop20250310222703.azurewebsites.net/api/Products"
         );
         if (!response.ok) throw new Error("Unable to fetch data");
         const data = await response.json();
@@ -49,7 +49,7 @@ function App() {
     setIsLoadingDetails(true);
     try {
       const response = await fetch(
-        `https://shop20240921105532.azurewebsites.net/api/Products/${id}`
+        `https://shop20250310222703.azurewebsites.net/api/Products/${id}`
       );
       if (!response.ok) throw new Error("Unable to fetch details");
       const data = await response.json();
