@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Layout from "./layout/Layout";
 import Login from "./pages/Login";
@@ -11,49 +11,25 @@ import Checkout from "./pages/Checkout";
 import { FavoritesProvider } from "./components/context/useFavorites";
 import NotFound from "./pages/NotFound";
 import { useNavigate } from "react-router-dom";
+import { products as productsData } from "./assets/products";
 import Result from "./pages/Result";
 import { UserContextProvider } from "./components/context/UserContext";
 import { ShopContextProvider } from "./components/context/ShopContext";
 import { ClipLoader } from "react-spinners"; 
 
 function App() {
-  const [products, setProducts] = useState([]);
   const [details, setDetails] = useState([]);
   const [inputValue, setInputValue] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [isLoadingDetails, setIsLoadingDetails] = useState(false);
   const inputRef = useRef();
   const navigate = useNavigate();
   const [results, setResults] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch(
-          "https://shop20250310222703.azurewebsites.net/api/Products"
-        );
-        if (!response.ok) throw new Error("Unable to fetch data");
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchProducts();
-  }, []);
-
-  const handleProductDetails = async (id) => {
+  const handleProductDetails = (id) => {
     setIsLoadingDetails(true);
     try {
-      const response = await fetch(
-        `https://shop20250310222703.azurewebsites.net/api/Products/${id}`
-      );
-      if (!response.ok) throw new Error("Unable to fetch details");
-      const data = await response.json();
-      setDetails(data);
+      const product = productsData.find((p) => p.ProductId === id);
+      if (!product) throw new Error("Product not found");
+      setDetails(product);
     } catch (error) {
       console.error("Error fetching details:", error);
     } finally {
@@ -64,7 +40,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const keyword = inputRef.current.value.trim().toLowerCase();
-    const filteredProducts = products.filter((p) =>
+    const filteredProducts = productsData.filter((p) =>
       p.productName.toLowerCase().includes(keyword)
     );
     setResults(filteredProducts);
@@ -81,7 +57,7 @@ function App() {
   }
 
   return (
-    <ShopContextProvider products={products}>
+    <ShopContextProvider products={productsData}>
       <UserContextProvider>
         <FavoritesProvider>
           <ScrollToTop />
@@ -102,50 +78,35 @@ function App() {
                 path="/"
                 element={
                     <Home
-                      products={products}
+                      products={productsData}
                       details={details}
                       handleProductDetails={handleProductDetails}
-                      isLoadingDetails={isLoadingDetails}
                     />
                 }
               />
               <Route
                 path="result"
                 element={
-                  isLoading ? (
-                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "200px", marginTop: "10px" }}>
-                      <ClipLoader color="#3498db" size={50} />
-                    </div>
-                  ) : (
                     <Result
-                      products={products}
+                      products={productsData}
                       results={results}
                       details={details}
                       handleProductDetails={handleProductDetails}
-                      isLoadingDetails={isLoadingDetails}
                     />
-                  )
                 }
               />
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
-              <Route path="/cart" element={<Cart products={products} />} />
+              <Route path="/cart" element={<Cart products={productsData} />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route
                 path="/favorite"
                 element={
-                  isLoading ? (
-                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "200px" }}>
-                      <ClipLoader color="#3498db" size={50} />
-                    </div>
-                  ) : (
                     <Favorite
-                      products={products}
+                      products={productsData}
                       details={details}
                       handleProductDetails={handleProductDetails}
-                      isLoadingDetails={isLoadingDetails}
                     />
-                  )
                 }
               />
               <Route path="/contact" element={<Contact />} />

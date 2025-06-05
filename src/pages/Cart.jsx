@@ -29,12 +29,12 @@ const Cart = ({ products }) => {
       <HStack className="mt-28 mb-3 ml-5">
         <Link to="/" size="xl">
           {/* The default icon size is 1em (16px) */}
-          <ArrowLeftIcon boxSize={4} color="green.500" className="mr-1" />
+          <ArrowLeftIcon boxSize={4} color="blue.500" className="mr-1" />
           Tillbaka
         </Link>
       </HStack>
       <div className="flex flex-col justify-center items-center mt-5 mb-24 mx-3 pt-2 pb-10 bg-gray-50">
-        <div className="text-lg font-bold text-[#00df9a]">
+        <div className="text-lg font-bold my-3">
           Dina kundvagnsartiklar
         </div>
         <div>

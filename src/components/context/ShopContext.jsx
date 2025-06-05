@@ -42,67 +42,12 @@ export const ShopContextProvider = ({ products, children }) => {
   };
 
   const addToCart = async (productId) => {
-    if (userId === null) {
-      toast.warning("Vänligen logga in först!");
-      return;
-    }
-    try {
-      const myObj = {
-        userId: userId,
-        cartItems: [
-          {
-            productId: productId,
-            productQuantity: 1,
-          },
-        ],
-      };
-      const response = await fetch(
-        "https://shop20250310222703.azurewebsites.net/api/Cart/add-to-cart",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(myObj),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Kan inte lägga till produkten!");
-      }
-
       setCartItems((prev) => ({ ...prev, [productId]: prev[productId] + 1 }));
       setCartCount((prevCount) => prevCount + 1);
-    } catch (error) {
-      console.error("Fel när varan lades till i kundvagnen:", error);
-    }
   };
 
   const removeFromCart = async (productId) => {
-    const myObj = {
-      userId: userId,
-      productId: productId,
-    };
-    try {
-      const response = await fetch(
-        `https://shop20250310222703.azurewebsites.net/api/Cart/decrement-cart-item/${userId}/${productId}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(myObj),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Kan inte radera produkten!");
-      }
-
       setCartItems((prev) => ({ ...prev, [productId]: prev[productId] - 1 }));
-    } catch (error) {
-      console.error("Fel när varan raderas i kundvagnen:", error);
-    }
   };
 
   const resetCart = () => {
@@ -117,26 +62,14 @@ export const ShopContextProvider = ({ products, children }) => {
     setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
   };
 
-  const clearCart = async () => {
-    try {
-      const response = await fetch(
-        `https://shop20250310222703.azurewebsites.net/api/Cart/delete-cart/${userId}`,
-        {
-          method: "DELETE",
-        }
-      );
-      if (!response.ok) {
-        throw new Error("Kan inte rensa kundvagnen!");
-      }
+  const clearCart = () => {
+   
 
       const updatedCartItems = {};
       for (const productId in cartItems) {
         updatedCartItems[productId] = 0;
       }
       setCartItems(updatedCartItems);
-    } catch (error) {
-      console.error("Fel när man inte få rensa kundvagnen:", error);
-    }
   };
 
   const checkout = () => {

@@ -61,7 +61,6 @@ const ToggleDraw = ({ products, openDrawers, handleCloseDrawer }) => {
               mt={10}
               fontSize={13}
               textAlign={"center"}
-              color="#00df9a"
             >
               {`Detaljer om ${element.productName}`}
             </DrawerHeader>

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { FavoritesContext } from "../components/context/useFavorites";
 import { ShopContext } from "./context/ShopContext";
 import Price from "./Price";
@@ -23,7 +24,7 @@ const ProductCard = ({ products, handleClick }) => {
       {products &&
         products.map((element) => (
           <div
-            key={element.productId}
+            key={uuidv4()}
             className="relative flex flex-col items-center rounded-md w-52 h-80 px-4 py-5 m-4 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out cursor-pointer shadow-lg shadow-slate-400"
           >
             <div className="flex flex-1 flex-col justify-center mb-4 relative">
@@ -75,7 +76,7 @@ const ProductCard = ({ products, handleClick }) => {
 
               <div className="flex flex-row justify-center">
                 <button
-                  className="mx-2 my-4 bg-[#00df9a] hover:bg-[rgb(12,125,90)] p-2  text-white uppercase rounded text-xs tracking-wider w-16 cursor-pointer"
+                  className="mx-2 my-4 bg-blue-400 hover:bg-blue-600 p-2  text-white uppercase rounded text-xs tracking-wider w-16 cursor-pointer"
                   onClick={() => {
                     handleClick(element);
                   }}
