@@ -17,7 +17,7 @@ const Login = () => {
       <div className="flex items-center justify-center mt-28 mb-28 mx-3 pt-3 pb-10  cursor-pointer">
         <div className="max-w-md w-full bg-gray-50 px-5 pb-8 shadow-xl shadow-gray-400 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out rounded">
           <div>
-            <h2 className="mt-5 mb-6 text-center text-xl font-bold text-[#00df9a]">
+            <h2 className="mt-5 mb-6 text-center text-xl font-bold">
               Logga in
             </h2>
           </div>
