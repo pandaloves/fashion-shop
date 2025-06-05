@@ -35,7 +35,7 @@ const Result = ({ products, results, details, handleProductDetails }) => {
       <HStack className="mt-28 mb-3 ml-5">
         <Link to="/" size="xl">
           {/* The default icon size is 1em (16px) */}
-          <ArrowLeftIcon boxSize={4} color="green.500" className="mr-1" />
+          <ArrowLeftIcon boxSize={4} color="blue.500" className="mr-1" />
           Tillbaka
         </Link>
       </HStack>
