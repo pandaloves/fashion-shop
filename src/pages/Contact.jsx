@@ -15,7 +15,7 @@ const Contact = () => {
 
       <div className="rounded-md mt-5 mb-28 mx-8 px-5 pt-3 pb-10 bg-gray-50 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out cursor-pointer">
         <div>
-          <h2 className="mb-5 text-lg font-bold text-[#00df9a] text-center">
+          <h2 className="mb-5 text-lg font-bold text-center">
             <b>Kontakta oss</b>
           </h2>
           <p className="mb-2">
