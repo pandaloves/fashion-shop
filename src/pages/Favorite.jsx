@@ -37,62 +37,66 @@ const Favorite = ({ products, details, handleProductDetails }) => {
     <>
       <HStack className="mt-28 mb-3 ml-5">
         <Link to="/" size="xl">
-          <ArrowLeftIcon boxSize={4} color="green.500" className="mr-1" />
+          <ArrowLeftIcon boxSize={4} color="blue.600" className="mr-1" />
           Tillbaka
         </Link>
       </HStack>
 
       <div className="mt-5 mb-20 mx-1 pt-3 pb-10 px-1">
-        <h1 className="mb-5 ml-6 text-lg font-bold text-center text-[#00df9a]">
+        <h1 className="mb-5 ml-6 text-lg font-bold text-center">
           Favorit
         </h1>
 
         {/* Mapping over favorite products */}
-        {favorites.map((favorite) => {
-          const selectedProduct = products.find(
-            (product) => product.productName === favorite
-          );
+       {favorites.length === 0 ? (
+  <div className="h2 text-center">Inga favorit!</div>
+   ) : (
+  favorites.map((favorite) => {
+    const selectedProduct = products.find(
+      (product) => product.productName === favorite
+    );
 
-          if (!selectedProduct) return null;
+    if (!selectedProduct) return null;
 
-          return (
-            <div
-              key={uuidv4()}
-              className="flex flex-row justify-between rounded-md mt-5 px-4 py-2 border-b-2 border-slate-100 mb-3 cursor-pointer"
-            >
-              <h3
-                className="text-base"
-                onClick={() => {
-                  handleClick(selectedProduct);
-                  handleProductDetails(selectedProduct.productId);
-                }}
-              >
-                {favorite}
-              </h3>
+    return (
+      <div
+        key={uuidv4()}
+        className="flex flex-row justify-between rounded-md mt-5 px-4 py-2 border-b-2 border-slate-100 mb-3 cursor-pointer"
+      >
+        <h3
+          className="text-base"
+          onClick={() => {
+            handleClick(selectedProduct);
+            handleProductDetails(selectedProduct.productId);
+          }}
+        >
+          {favorite}
+        </h3>
 
-              <div className="flex justify-between">
-                <button
-                  className="ml-1 mr-2 bg-[#00df9a] hover:bg-[#00df9a] px-2 py-2 text-white uppercase rounded text-xs tracking-wider cursor-pointer"
-                  onClick={() => {
-                    handleClick(selectedProduct);
-                    handleProductDetails(selectedProduct.productId);
-                  }}
-                >
-                  View
-                </button>
+        <div className="flex justify-between">
+          <button
+            className="ml-1 mr-2 bg-blue-400 hover:bg-blue-600 px-2 py-2 text-white uppercase rounded text-xs tracking-wider cursor-pointer"
+            onClick={() => {
+              handleClick(selectedProduct);
+              handleProductDetails(selectedProduct.productId);
+            }}
+          >
+            View
+          </button>
 
-                <button
-                  className=" bg-pink-600 hover:bg-pink-700 px-2 py-2 text-white uppercase rounded text-xs tracking-wider cursor-pointer"
-                  onClick={() => {
-                    handleRemoveFavorite(selectedProduct);
-                  }}
-                >
-                  Radera
-                </button>
-              </div>
-            </div>
-          );
-        })}
+          <button
+            className=" bg-pink-600 hover:bg-pink-700 px-2 py-2 text-white uppercase rounded text-xs tracking-wider cursor-pointer"
+            onClick={() => {
+              handleRemoveFavorite(selectedProduct);
+            }}
+          >
+            Radera
+          </button>
+        </div>
+      </div>
+    );
+  })
+   )}
 
         <ToggleDraw
           products={products}

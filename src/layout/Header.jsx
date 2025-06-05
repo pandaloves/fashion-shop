@@ -54,7 +54,7 @@ const Header = ({ inputValue, setInputValue, inputRef, handleSubmit }) => {
               mr={3}
               pl="2"
               style={{
-                border: "2px solid #00df9a",
+                border: "2px solid white",
                 height: "29px",
               }}
               className="w-full md:w-2/3 lg:w-1/2 text-xs md:text-sm lg:text-base"
@@ -72,27 +72,27 @@ const Header = ({ inputValue, setInputValue, inputRef, handleSubmit }) => {
       {/* Desktop navigation */}
       <div className="hidden md:flex space-x-1">
         <NavLink
-          className="p-4 hover:bg-[#00df9a] rounded-xl cursor-pointer duration-300 hover:text-black"
+          className="p-4 hover:bg-[white] rounded-xl cursor-pointer duration-300 hover:text-black"
           to="/"
         >
           Home
         </NavLink>
 
         <NavLink
-          className="p-4 hover:bg-[#00df9a] rounded-xl cursor-pointer duration-300 hover:text-black"
+          className="p-4 hover:bg-[white] rounded-xl cursor-pointer duration-300 hover:text-black"
           to="/favorite"
         >
           Favorit
         </NavLink>
 
         <NavLink
-          className="p-4 hover:bg-[#00df9a] rounded-xl cursor-pointer duration-300 hover:text-black"
+          className="p-4 hover:bg-[white] rounded-xl cursor-pointer duration-300 hover:text-black"
           to="/contact"
         >
           Kontakt
         </NavLink>
 
-        <div className="hover:bg-[#00df9a] flex items-center justify-center p-4 rounded-xl cursor-pointer duration-300 hover:text-black">
+        <div className="hover:bg-[white] flex items-center justify-center p-4 rounded-xl cursor-pointer duration-300 hover:text-black">
           {!isAuthenticated ? (
             <NavLink to="/login">Login</NavLink>
           ) : (

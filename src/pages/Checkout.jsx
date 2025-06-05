@@ -24,57 +24,10 @@ const Checkout = () => {
   const navigate = useNavigate();
 
   // Handle payment
-  const handlePayment = async (e) => {
-    e.preventDefault();
+  const handlePayment = (e) => {
+        e.preventDefault();
 
-    // Check if any required field is empty
-    if (
-      !firstName ||
-      !lastName ||
-      !email ||
-      !address ||
-      !city ||
-      !zipCode ||
-      !cardNumber ||
-      !nameOnCard ||
-      !expirationDate ||
-      !cvv
-    ) {
-      toast.error("Vänligen fyll i alla obligatoriska fält.");
-      return;
-    }
-
-    const myPayment = {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      address: address,
-      city: city,
-      zipCode: zipCode,
-      cardNumber: cardNumber,
-      nameOnCard: nameOnCard,
-      expirationDate: expirationDate,
-      cvv: cvv,
-      orderId: orderId,
-    };
-
-    try {
-      const response = await fetch(
-        "https://shop20250310222703.azurewebsites.net/api/Payments/create-payment",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(myPayment),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Kan inte betala!");
-      }
-
-      toast.success(
+        toast.success(
         `Tack för din betalning med ${totalPay} SEK! Vårt team håller på att packa dina saker. Vi hör av oss igen när vi har skickat paketet.`
       );
 
@@ -83,13 +36,7 @@ const Checkout = () => {
       setTimeout(() => {
         navigate("/");
       }, 6000);
-    } catch (error) {
-      toast.error(
-        "Misslyckats med betalningen. Kontrollera om din information är korrekt."
-      );
-      console.error("Fel vid registrering:", error);
-    }
-  };
+    } 
 
   return (
     <>
@@ -103,11 +50,11 @@ const Checkout = () => {
 
       <section className="flex items-center justify-center  mt-24 mb-28 mx-3 pt-3 pb-10  cursor-pointer">
         <div className="max-w-md w-full bg-gray-50 px-5 pb-8 shadow-xl shadow-gray-400 transform hover:scale-105 hover:shadow-xl transition delay-50 duration-300 ease-in-out rounded">
-          <h1 className="mb-5 ml-6 text-lg font-bold text-center text-[#00df9a]">
+          <h1 className="my-4 ml-6 text-lg font-bold text-center">
             Checkout
           </h1>
           <div>
-            <h2 className="mt-5 mb-2 text-start text-lg font-bold text-[#00df9a]">
+            <h2 className="mt-5 mb-2 text-start text-lg font-bold">
               Räkningen
             </h2>
 
@@ -115,7 +62,7 @@ const Checkout = () => {
           </div>
 
           <div>
-            <h2 className="mt-5 mb-2 text-start text-lg font-bold text-[#00df9a]">
+            <h2 className="mt-5 mb-2 text-start text-lg font-bold">
               Frakt uppgifter
             </h2>
           </div>
@@ -235,7 +182,7 @@ const Checkout = () => {
                 </label>
               </div>
 
-              <h1 className="mt-5 text-start text-lg font-bold text-[#00df9a]">
+              <h1 className="mt-5 text-start text-lg font-bold">
                 Betalning
               </h1>
 

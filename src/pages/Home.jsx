@@ -37,7 +37,7 @@ const Home = ({ products, details, handleProductDetails }) => {
       <Box position="relative" padding="10" marginTop="-5">
         <Divider />
         <AbsoluteCenter
-          bg={"green.400"}
+          bg={"blue.400"}
           borderRadius="10px"
           px="2"
           py="2"
@@ -45,7 +45,7 @@ const Home = ({ products, details, handleProductDetails }) => {
           color="white"
           _hover={{
             "&:hover": {
-              bg: "green.600",
+              bg: "blue.600",
             },
           }}
         >
