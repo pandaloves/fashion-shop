@@ -76,7 +76,7 @@ const ProductCard = ({ products, handleClick }) => {
 
               <div className="flex flex-row justify-center">
                 <button
-                  className="mx-2 my-4 bg-blue-400 hover:bg-blue-600 p-2  text-white uppercase rounded text-xs tracking-wider w-16 cursor-pointer"
+                  className="mx-2 my-4 bg-gray-400 hover:bg-black p-2  text-white uppercase rounded text-xs tracking-wider w-16 cursor-pointer"
                   onClick={() => {
                     handleClick(element);
                   }}
