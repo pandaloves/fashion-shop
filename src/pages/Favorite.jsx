@@ -75,7 +75,7 @@ const Favorite = ({ products, details, handleProductDetails }) => {
 
         <div className="flex justify-between">
           <button
-            className="ml-1 mr-2 bg-blue-400 hover:bg-blue-600 px-2 py-2 text-white uppercase rounded text-xs tracking-wider cursor-pointer"
+            className="ml-1 mr-2 bg-gray-400 hover:bg-black px-2 py-2 text-white uppercase rounded text-xs tracking-wider cursor-pointer"
             onClick={() => {
               handleClick(selectedProduct);
               handleProductDetails(selectedProduct.productId);

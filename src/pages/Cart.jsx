@@ -107,7 +107,7 @@ const Cart = ({ products }) => {
 
             <div className="flex justify-center items-center mt-8">
               <button
-                className="w-40 h-12 bg-green-600 text-white uppercase border-none rounded-lg mx-2 cursor-pointer"
+                className="w-40 h-12 bg-gray-400 hover:bg-black text-white uppercase border-none rounded-lg mx-2 cursor-pointer"
                 onClick={() => navigate("/")}
               >
                 {" "}
