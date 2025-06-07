@@ -59,33 +59,13 @@ const Register = () => {
       password: password,
     };
 
-    try {
-      const response = await fetch(
-        "https://shop20250310222703.azurewebsites.net/api/ShopUsers/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(myObj),
-        }
-      );
 
-      if (!response.ok) {
-        throw new Error("kan inte registrera sig");
-      }
 
       toast.success("Registrerat dig framgångsrikt！");
 
       setTimeout(() => {
         navigate("/login");
       }, 1000);
-    } catch (error) {
-      toast.error(
-        "Registrerat dig misslyckades. Kontrollera din e-postadress och ditt lösenord."
-      );
-      console.error("Fel vid registrering:", error);
-    }
   };
 
   const togglePasswordVisibility = () => {

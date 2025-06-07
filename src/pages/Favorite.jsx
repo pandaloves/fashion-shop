@@ -49,12 +49,12 @@ const Favorite = ({ products, details, handleProductDetails }) => {
 
         {/* Mapping over favorite products */}
        {favorites.length === 0 ? (
-  <div className="h2 text-center">Inga favorit!</div>
-   ) : (
-  favorites.map((favorite) => {
-    const selectedProduct = products.find(
-      (product) => product.productName === favorite
-    );
+       <div className="h2 text-center">Ingen favorit!</div>
+       ) : (
+       favorites.map((favorite) => {
+       const selectedProduct = products.find(
+       (product) => product.productName === favorite
+     );
 
     if (!selectedProduct) return null;
 
