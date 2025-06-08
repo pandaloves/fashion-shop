@@ -53,7 +53,7 @@ const Home = ({ products, details, handleProductDetails }) => {
         </AbsoluteCenter>
       </Box>
 
-      <div className="flex flex-wrap justify-start gap-4 mt-4 mb-20 mx-3 pt-3 pb-10">
+      <div className="flex flex-wrap justify-center xl:justify-start gap-4 mt-4 mb-20 mx-3 pt-3 pb-10">
         <ProductCard
           key={uuidv4()}
           products={products}
