@@ -18,9 +18,7 @@ const ToggleDraw = ({ products, openDrawers, handleCloseDrawer }) => {
   const drawerSize = useBreakpointValue({
     base: "xs", // Mobile devices
     sm: "sm", // Small screens
-    md: "md", // Medium screens (tablets)
-    lg: "lg", // Large screens (desktops)
-    xl: "xl", // Extra large screens
+    xl: "md", // Extra large screens
   });
 
   // Update the local state when openDrawers prop changes
@@ -59,7 +57,7 @@ const ToggleDraw = ({ products, openDrawers, handleCloseDrawer }) => {
             {/* Drawer header */}
             <DrawerHeader
               mt={10}
-              fontSize={13}
+              fontSize={16}
               textAlign={"center"}
             >
               {`Detaljer om ${element.productName}`}

@@ -55,15 +55,16 @@ const Header = ({ inputValue, setInputValue, inputRef, handleSubmit }) => {
               pl="2"
               style={{
                 border: "2px solid white",
-                height: "29px",
+                height: "31px",
+                fontSize: "13px",
               }}
-              className="w-full md:w-2/3 lg:w-1/2 text-xs md:text-sm lg:text-base"
+              className="w-full md:w-2/3 lg:w-1/2 md:text-sm lg:text-base"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               required
             />
             <InputRightElement pointerEvents="none">
-              <Search2Icon w={2} h={2} mt={-2} ml={-22} color="gray.400" />
+              <Search2Icon w={3} h={3} mt={-2} ml={-22} color="gray.400" />
             </InputRightElement>
           </InputGroup>
         </FormControl>
